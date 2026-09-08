@@ -1,0 +1,59 @@
+* =====================================================================
+*  LM399 / LM399A  -  Referencia de precision 6,95 V con horno interno
+*  Modelo de bloque de 4 terminales para LTspice
+*
+*  Fuente: Analog Devices LM199/LM299/LM399/LM199A/LM399A, Rev. D
+*
+*  TERMINALES (orden del .subckt = orden de pines del encapsulado):
+*     1 = REF+   catodo del zener enterrado
+*     2 = REF-   anodo del zener
+*     3 = HTR+   estabilizador de temperatura, positivo
+*     4 = HTR-   estabilizador de temperatura, negativo  ==  SUSTRATO
+*
+*  Encapsulado: 4-Lead TO-46 metal can dentro de escudo termico (H)
+*  Footprint KiCad: Package_TO_SOT_THT:Analog_TO-46-4_ThermalShield
+*
+*  PARAMETROS REPRODUCIDOS (hoja de datos, LM399, TA = 25 C):
+*     Vz   = 6,95 V tipico   con 0,5 mA <= Ir <= 10 mA
+*     rz   = 0,5 ohm tipico  a Ir = 1 mA
+*     en   = ~80 nV/sqrt(Hz) -> ~7 uVrms en 10 Hz..10 kHz
+*     Ih   = 8,5 mA tipico   con Vh = 30 V, TA = 25 C
+*     Vh   = 9 V a 40 V
+*
+*  NO REPRODUCIDO  (leer antes de confiar en una simulacion):
+*   - Coeficiente termico de 0,3 ppm/C. El horno no esta modelado
+*     termicamente: un barrido de .step temp NO da resultados validos.
+*   - Corriente de arranque del calentador (140 a 200 mA hasta que el
+*     horno llega a regimen, ~3 s). El modelo arranca ya en los 8,5 mA.
+*   - Dispersion inicial unidad a unidad: 6,75 a 7,3 V (LM399).
+*     El modelo usa siempre el valor tipico de 6,95 V.
+*   - Estabilidad a largo plazo (8 ppm/sqrt(kh)).
+* =====================================================================
+
+* Parametro vz: tension de ruptura. Tipico 6,95 V; la hoja de datos
+* garantiza 6,75 a 7,3 V para el LM399. Uso: XREF a b c d LM399 vz=7.1
+.subckt LM399 1 2 3 4 params: vz=6.95
+
+* ---- Zener enterrado: 6,95 V a 1 mA, impedancia dinamica 0,5 ohm ----
+* NBV ajusta la pendiente de ruptura para dar rz = 0,5 ohm
+Dz    na 1   DZ399
+
+* ---- Ruido: Rn genera ruido termico, En lo inyecta en serie ----
+* 386k -> 80 nV/sqrt(Hz).  Rn no lleva corriente continua, asi que
+* no introduce ningun desplazamiento de continua.
+Rn    nz 0   386k
+En    na 2   nz 0   1
+
+* ---- Calentador: 8,5 mA en regimen, se corta por debajo de 9 V ----
+Bh    3 4    I = 8.5m*uplim(V(3,4)/9, 1, 0.2)
+
+* ---- Juntura de sustrato (Nota 2 de la hoja de datos) ----
+* El sustrato es HTR-. Si REF- baja mas de ~0,1 V por debajo de HTR-
+* esta juntura conduce. En una placa real eso destruye el componente;
+* aca lo vas a ver como una corriente grande en Dsub.
+Dsub  4 2    DSUB399
+
+.model DZ399   D(BV={vz} IBV=1m NBV=0.02 RS=0.3)
+.model DSUB399 D(IS=1e-14 RS=1 N=1)
+
+.ends LM399
