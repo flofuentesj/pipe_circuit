@@ -1,0 +1,150 @@
+* OP270 SPICE Macro-model 
+* Description: Amplifier
+* Generic Desc: 9/30V, BIP, OP, Low Noise, Precision, 2X
+* Developed by: HH / ADSJ
+* Revision History: 08/10/2012 - Updated to new header style
+* 1.0 (01/2010)
+* Copyright 2010, 2012 by Analog Devices, Inc.
+*
+* Refer to http://www.analog.com/Analog_Root/static/techSupport/designTools/spiceModels/license/spice_general.html for License Statement. Use of this model 
+* indicates your acceptance of the terms and provisions in the License Statement.
+*
+* BEGIN Notes:
+*
+* Not Modeled:
+*    
+* Parameters modeled include:
+* This version of the OP-270 model simulates the typical 
+* parameters at 25C and +/-15V only.
+*
+* END Notes
+*
+* Node assignments
+*              non-inverting input
+*              | inverting input
+*              | | positive supply
+*              | | |  negative supply
+*              | | |  |  output
+*              | | |  |  |
+.SUBCKT OP270  1 2 99 50 39
+*
+* INPUT STAGE 
+*
+R3   5  99    3.050E+04
+R4   6  99    3.050E+04
+CIN  1   2    3.2E-12
+C2   5a  6    2.65E-13
+RC2  5  5a    1.0E+03 
+IOS  1   2    5.0E-9
+EOS  9   1    POLY(4) (31 98) (81 98) (83 98) (22 98) 100E-06 1 1 1 1
+Q1   5  2  7  QXN
+Q2   6  9  8  QXN
+R5   7   4    1.07E+02
+R6   8   4    1.07E+02
+I1   4  50    200E-06
+VI1  450 50   2.7
+DI1  450  4   DX
+D1   2   1    DX
+D2   1   2    DX
+GN1  50   2   (60 61)  1.453E-05
+GN2  50   1   (62 63)  1.453E-05
+*
+EREF  98 0    33  0  1
+*
+* GAIN STAGE & DOMINANT POLE 
+*
+R7   20 98     3.640E+08
+C3   20 98     9.75E-11
+G1   98 20     (5 6)  4.262E-05
+EV1  98 21a     POLY(1) (99 98)  -2.1  1
+EV2  22a 98     POLY(1) (98 50)  -2.3  1
+D5   21a 20     DX
+D6   20 22a     DX
+*
+* COMMON-MODE GAIN NETWORK 
+*
+E5   30 98     POLY(2) (2 50) (1 50)  0  8.483E-04  8.483E-04
+RCM1 30 31     1.929E+00
+RCM2 31 98     7.958E-04
+CCM  30 31     100.0E-06
+*
+* PSRR NETWORK
+*
+EPSY 98 21 POLY(1) (99,50) -4.468E-02 1.489E-03  
+RPS3 21 22 1.989E+01
+RPS4 22 98 1.061E-02
+CPS3 22 21 1.0E-06
+*
+* VOLTAGE NOISE
+*
+VN1 80 98 0
+RN1 80 98 33.1E-3
+HN  81 98 VN1 2.10E+00
+RN2 81 98 1
+*
+* FLICKER NOISE CORNER 
+*
+DFN 82 98 DNOISE
+VFN 82 98 DC 0.65520
+HFN 83 98 POLY(1) VFN 1.00E-03 1.00E+00
+RFN 83 98 1
+*
+* CURRENT NOISE SOURCE WITH FLICKER NOISE
+*
+D60 60 0 DIN1 1000
+I60 0 60 1m
+D61 61 0 DIN1
+I61 0 61 1u
+*
+* SECOND CURRENT NOISE SOURCE
+*
+D62 62 0 DIN1
+I62 0 62 1u
+D63 63 0 DIN1
+I63 0 63 1u
+*
+R17  33 99     1meg
+R18  33 50     1meg
+C178 33 50    1E-06
+C188 33 99    1E-06
+*
+GSY  99 50     POLY(1) 99 50 1.425E-03 12.475E-6
+*
+*  OUTPUT STAGE
+*
+R19  34 99     160
+R20  34 50     160
+G9   34 99     99 20   6.250E-3
+G10  50 34     20 50   6.250E-3
+*
+V3   35 34     1.5;  source
+D9   20 35     DX
+V4   34 36     1.003
+D10  36 20     DX
+*
+G7   37 50     20 34   6.250E-3
+G8   38 50     34 20   6.250E-3
+D11  99 37     DX
+D12  99 38     DX
+D13  50 37     DY
+D14  50 38     DY
+*
+F1   34  0     V3  1
+F2   0  34     V4  1
+*
+L3   34 39     1E-7;    39 is output pin
+*
+* MODELS USED
+*
+.MODEL QXN NPN(BF=1.333E+04); , KF=1.2E-6, AF=1)
+.MODEL DX   D(IS=1E-15, RS=1m)
+.MODEL DY   D(IS=1E-15 BV=50)
+.MODEL DEN  D(IS=1E-12, RS=300, KF=5.5E-16, AF=0.96)
+.MODEL DNOISE D(IS=1E-14,RS=1E-1,KF=3.7E-14)
+.MODEL DIN  D(IS=1E-12, RS=1.0E-3, KF=6.3E-16, AF=1)
+.MODEL DIN1 D(IS=1E-15, RS=3.70E+04, KF=3.04E-17, AF=1)
+.ENDS
+
+
+
+
