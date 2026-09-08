@@ -1,0 +1,141 @@
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(1): Expected node name here.
+Version 4
+         ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(1): Expected device instantiation or directive here.
+Version 4
+^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(2): Expected node name here.
+SymbolType BLOCK
+                ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(2): Expected device instantiation or directive here.
+SymbolType BLOCK
+^^^^^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(3): Unknown parameter
+LINE Normal -80 48 -48 48
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(4): Unknown parameter
+LINE Normal -80 80 -48 80
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(5): Unknown parameter
+LINE Normal 48 48 80 48
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(6): Unknown parameter
+LINE Normal 48 80 80 80
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(7): Unknown parameter
+LINE Normal -48 48 -30 48
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(8): Unknown parameter
+LINE Normal -30 48 -30 52
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(9): Unknown parameter
+LINE Normal -30 76 -30 80
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(10): Unknown parameter
+LINE Normal -48 80 -30 80
+                   ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(11): Unknown parameter
+LINE Normal 48 48 28 48
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(12): Unknown parameter
+LINE Normal 28 48 28 56
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(13): Unknown parameter
+LINE Normal 20 56 36 56
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(14): Unknown parameter
+LINE Normal 20 56 16 52
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(15): Unknown parameter
+LINE Normal 36 56 40 60
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(16): Unknown parameter
+LINE Normal 20 72 36 72
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(17): Unknown parameter
+LINE Normal 20 72 28 56
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(18): Unknown parameter
+LINE Normal 36 72 28 56
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(19): Unknown parameter
+LINE Normal 28 72 28 80
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(20): Unknown parameter
+LINE Normal 48 80 28 80
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(21): Unknown parameter
+LINE Normal -30 80 -8 80
+                   ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(22): Unknown parameter
+LINE Normal -8 74 -8 86
+                  ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(23): Unknown parameter
+LINE Normal -8 74 6 80
+                  ^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(24): Unknown parameter
+LINE Normal -8 86 6 80
+                  ^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(25): Unknown parameter
+LINE Normal 6 74 6 86
+                 ^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(26): Unknown parameter
+LINE Normal 6 80 28 80
+                 ^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(27): Unknown parameter
+RECTANGLE Normal -48 16 48 112
+                        ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(28): Unknown parameter
+RECTANGLE Normal -36 52 -24 76
+                        ^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(29): Unknown parameter
+WINDOW 0 -48 4 Left 2
+                    ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(30): Unknown parameter
+WINDOW 3 -48 128 Left 2
+                      ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(31): Expected 2 node names here.
+SYMATTR Value LM399
+                   ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(32): Expected 2 node names here.
+SYMATTR Prefix X
+                ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(33): Expected 2 node names here.
+SYMATTR ModelFile LM399.lib
+                           ^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(35): Expected nodes here.
+PIN 80 48 NONE 0
+    ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(36): Expected nodes here.
+PINATTR PinName REF+
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(37): Expected nodes here.
+PINATTR SpiceOrder 1
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(38): Expected nodes here.
+PIN 80 80 NONE 0
+    ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(39): Expected nodes here.
+PINATTR PinName REF-
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(40): Expected nodes here.
+PINATTR SpiceOrder 2
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(41): Expected nodes here.
+PIN -80 48 NONE 0
+    ^^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(42): Expected nodes here.
+PINATTR PinName HTR+
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(43): Expected nodes here.
+PINATTR SpiceOrder 3
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(44): Expected nodes here.
+PIN -80 80 NONE 0
+    ^^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(45): Expected nodes here.
+PINATTR PinName HTR-
+        ^^^^^^^^^^^^
+Y:\Downloads\pipe_circuit\SPICE\LM399.lib(46): Expected nodes here.
+PINATTR SpiceOrder 4
+        ^^^^^^^^^^^^
